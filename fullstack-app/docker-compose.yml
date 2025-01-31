@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  mysql-db:
+    build: ./mysql
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    restart: always
+
+  backend:
+    build: ./backend-java-app
+    container_name: backend-java
+    depends_on:
+      - mysql-db
+
+  frontend:
+    build: ./frontend-node-app
+    container_name: frontend-node
+    depends_on:
+      - mysql-db
+
