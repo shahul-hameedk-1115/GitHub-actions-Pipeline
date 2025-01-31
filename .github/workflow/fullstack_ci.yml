@@ -30,7 +30,7 @@ jobs:
 
       - name: Run SQL Initialization Script
         run: |
-          PGPASSWORD=mypassword psql -h localhost -U myuser -d mydatabase -f jenkins-sample-projects/fullstack-app/mysql/init.sql
+          PGPASSWORD=mypassword psql -h localhost -U myuser -d mydatabase -f ./fullstack-app/mysql/init.sql
 
   backend-build:
     name: Build Backend and Create Docker Image
